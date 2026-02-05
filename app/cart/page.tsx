@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useCart } from '@/context/CartContext';
+import { ekuseCart } from '@/context/CartContext';
 import Link from 'next/link';
 import { Trash2, Plus, Minus } from 'lucide-react';
 
@@ -12,7 +12,7 @@ export default function CartPage() {
     updateQuantity, 
     totalPrice,
     totalItems 
-  } = useCart();
+  } = ekuseCart();
 
   if (items.length === 0) {
     return (
@@ -42,51 +42,49 @@ export default function CartPage() {
         {/* Lista produktów */}
         <div className="lg:col-span-2">
           <div className="space-y-4">
-            {items.map((item) => (
+            {items.map((ekitem) => (
               <div 
-                key={item.product.id} 
+                key={ekitem.product.id} 
                 className="bg-white border rounded-lg p-4 flex items-center justify-between shadow-sm"
               >
                 <div className="flex items-center space-x-4">
                   <img 
-                    src={item.product.image} 
-                    alt={item.product.name}
+                    src={ekitem.product.image} 
+                    alt={ekitem.product.name}
                     className="w-20 h-20 object-cover rounded"
                   />
                   <div>
-                    {/* ZMIANA: Ciemniejsza nazwa produktu */}
-                    <h3 className="font-bold text-gray-900">{item.product.name}</h3>
-                    <p className="text-gray-700 text-sm">{item.product.category}</p>
+                    <h3 className="font-bold text-gray-900">{ekitem.product.name}</h3>
+                    <p className="text-gray-700 text-sm">{ekitem.product.category}</p>
                     <p className="text-lg font-bold text-blue-600">
-                      {(item.product.price * item.quantity).toFixed(2)} zł
+                      {(ekitem.product.price * ekitem.quantity).toFixed(2)} zł
                     </p>
                     <p className="text-sm text-gray-700">
-                      {item.product.price.toFixed(2)} zł / szt.
+                      {ekitem.product.price.toFixed(2)} zł / szt.
                     </p>
                   </div>
                 </div>
                 
                 <div className="flex items-center space-x-4">
-                  {/* ZMIANA: Przyciski zmiany ilości - lepiej widoczne */}
                   <div className="flex items-center border rounded bg-gray-50">
                     <button
-                      onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
+                      onClick={() => updateQuantity(ekitem.product.id, ekitem.quantity - 1)}
                       className="px-3 py-2 hover:bg-gray-200 text-gray-800"
                     >
                       <Minus className="h-4 w-4" />
                     </button>
-                    <span className="px-4 py-2 text-gray-900 font-medium">{item.quantity}</span>
+                    <span className="px-4 py-2 text-gray-900 font-medium">{ekitem.quantity}</span>
                     <button
-                      onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
+                      onClick={() => updateQuantity(ekitem.product.id, ekitem.quantity + 1)}
                       className="px-3 py-2 hover:bg-gray-200 text-gray-800"
                     >
                       <Plus className="h-4 w-4" />
                     </button>
                   </div>
         
-                  {/* ZMIANA: Ciemniejszy przycisk usuwania */}
+                  {}
                   <button
-                    onClick={() => removeItem(item.product.id)}
+                    onClick={() => removeItem(ekitem.product.id)}
                     className="text-gray-800 hover:text-red-600 p-2 hover:bg-red-50 rounded"
                     title="Usuń z koszyka"
                   >

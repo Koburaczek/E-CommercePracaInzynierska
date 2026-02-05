@@ -1,4 +1,4 @@
-export interface Product {
+export interface ekProduct {
   id: number;
   name: string;
   price: number;
@@ -7,7 +7,7 @@ export interface Product {
   image: string;
 }
 
-export const products: Product[] = [
+export const ekproducts: ekProduct[] = [
   {
     id: 1,
     name: "iPhone 15",
@@ -59,16 +59,16 @@ export const products: Product[] = [
   
 ];
 // Funkcja do pobierania wszystkich produktów
-export function getProducts(): Product[] {
-  return products;
+export function ekgetProducts(): ekProduct[] {
+  return ekproducts;
 }
 
 // Funkcja do pobierania pojedynczego produktu
-export function getProductById(id: number): Product | undefined {
-  return products.find(product => product.id === id);
+export function ekgetProductById(id: number): ekProduct | undefined {
+  return ekproducts.find(ekproduct => ekproduct.id === id);
 }
 
 // Funkcja do filtrowania produktów
-export function getProductsByCategory(category: string): Product[] {
-  return products.filter(product => product.category === category);
+export function ekgetProductsByCategory(category: string): ekProduct[] {
+  return ekproducts.filter(ekproduct => ekproduct.category === category);
 }

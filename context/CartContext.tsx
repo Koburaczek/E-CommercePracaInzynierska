@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { Product } from '@/lib/data';
+import { ekProduct } from '@/lib/data';
 
-interface CartItem {
-  product: Product;
+interface ekCartItem {
+  product: ekProduct;
   quantity: number;
 }
 
 interface CartContextType {
-  items: CartItem[];
-  addItem: (product: Product) => void;
+  items: ekCartItem[];
+  addItem: (product: ekProduct) => void;
   removeItem: (productId: number) => void;
   updateQuantity: (productId: number, quantity: number) => void;
   clearCart: () => void;
@@ -22,7 +22,7 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [items, setItems] = useState<CartItem[]>([]);
+  const [items, setItems] = useState<ekCartItem[]>([]);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
   }, [items, mounted]);
 
-  const addItem = (product: Product) => {
+  const addItem = (product: ekProduct) => {
     setItems(prevItems => {
       const existingItem = prevItems.find(item => item.product.id === product.id);
       
@@ -111,7 +111,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
   );
 }
 
-// TO JEST WAŻNE! MUSI BYĆ EKSPORT useCart
 export function useCart() {
   const context = useContext(CartContext);
   if (context === undefined) {

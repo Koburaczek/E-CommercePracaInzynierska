@@ -1,12 +1,12 @@
 'use client';
 import { User, LogOut, LogIn } from 'lucide-react';
-import { useAuth } from '@/context/AuthContext';
-import { useCart } from '@/context/CartContext';
+import { ekuseAuth } from '@/context/AuthContext';
+import { ekuseCart } from '@/context/CartContext';
 import Link from 'next/link';
 
-export default function Navbar() {
-  const { user, isAuthenticated, logout } = useAuth(); 
-  const { totalItems } = useCart();
+export default function ekNavbar() {
+  const { user, isAuthenticated, logout } = ekuseAuth(); 
+  const { totalItems } = ekuseCart();
   
   return (
     <nav className="sticky top-0 z-50 bg-blue-600 text-white p-4 shadow-lg">
@@ -33,7 +33,6 @@ export default function Navbar() {
         </div>
         
         <div className="hidden md:flex items-center space-x-6">
-          {/* Przycisk logowania/wylogowania z informacjami o użytkowniku */}
           {isAuthenticated ? (
             <div className="flex items-center space-x-4"> 
               <div className="flex items-center space-x-2">

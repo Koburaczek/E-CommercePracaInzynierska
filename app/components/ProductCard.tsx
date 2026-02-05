@@ -1,10 +1,10 @@
 'use client';
-import { Product } from '@/lib/data';
+import { ekProduct } from '@/lib/data';
 import { useCart } from '@/context/CartContext';
 import { useState } from 'react';
 
 interface ProductCardProps {
-  product: Product;
+  product: ekProduct;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {

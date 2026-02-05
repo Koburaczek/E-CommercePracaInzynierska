@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
@@ -19,13 +19,13 @@ export default function LoginPage() {
     const success = await login(email, password);
     
     if (success) {
-      router.push('/'); // Przekieruj na stronę główną
+      router.push('/'); 
     } else {
       setError('Nieprawidłowy email lub hasło');
     }
   };
 
-  // Dane testowe do szybkiego logowania
+  // Dane testowe 
   const fillTestCredentials = (userType: 'user' | 'admin') => {
     if (userType === 'user') {
       setEmail('user@example.com');

@@ -1,10 +1,10 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { User, validateLogin } from '@/lib/users'
+import { ekUser, ekvalidateLogin } from '@/lib/users'
 
 interface AuthContextType {
-  user: User | null;
+  user: ekUser | null;
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<boolean>;
   logout: () => void;
@@ -14,7 +14,7 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<ekUser | null>(null);
   const [loading, setLoading] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
 
@@ -36,7 +36,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     
     await new Promise(resolve => setTimeout(resolve, 500));
     
-    const validatedUser = validateLogin(email, password);
+    const validatedUser = ekvalidateLogin(email, password);
     
     if (validatedUser) {
       setUser(validatedUser);

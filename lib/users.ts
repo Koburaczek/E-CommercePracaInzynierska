@@ -1,4 +1,4 @@
-export interface User {
+export interface ekUser {
   id: number;
   email: string;
   password: string; 
@@ -6,11 +6,11 @@ export interface User {
   role: 'user' | 'admin';
 }
 
-export const hardcodedUsers: User[] = [
+export const hardcodedUsers: ekUser[] = [
   {
     id: 1,
     email: 'user@example.com',
-    password: 'user123', // TO DO: W pracy napisać że to DEMO
+    password: 'user123', 
     name: 'ADC XYZ',
     role: 'user'
   },
@@ -31,7 +31,7 @@ export const hardcodedUsers: User[] = [
 ];
 
 // Funkcja do walidacji logowania
-export function validateLogin(email: string, password: string): User | null {
+export function ekvalidateLogin(email: string, password: string): ekUser | null {
   const user = hardcodedUsers.find(
     u => u.email === email && u.password === password
   );

@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import ProductCard from './components/ProductCard';
-import { Product, products } from '@/lib/data';
+import { ekProduct, ekproducts } from '@/lib/data';
 
 
 
@@ -25,7 +25,7 @@ export default function Home() {
       <section>
         <h2 className="text-3xl font-bold mb-6">Polecane produkty</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {products.slice(0, 6).map((product: Product) => (
+          {ekproducts.slice(0, 6).map((product: ekProduct) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

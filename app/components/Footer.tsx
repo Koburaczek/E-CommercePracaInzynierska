@@ -1,4 +1,4 @@
-export default function Footer() {
+export default function ekFooter() {
   return (
     <footer className="bg-gray-800 text-white p-8 mt-12">
       <div className="container mx-auto text-center">
