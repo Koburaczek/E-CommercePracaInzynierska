@@ -3,11 +3,11 @@ import { ekProduct } from '@/lib/data';
 import { useCart } from '@/context/CartContext';
 import { useState } from 'react';
 
-interface ProductCardProps {
-  product: ekProduct;
+interface ekProductCardProps {
+  ekproduct: ekProduct;
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ekProductCard({ ekproduct: product }: ekProductCardProps) {
   const { addItem, getItemQuantity } = useCart();
   const [isAdding, setIsAdding] = useState(false);
   const quantityInCart = getItemQuantity(product.id);

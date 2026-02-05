@@ -72,7 +72,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 export function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    throw new Error('Musi być użyty wewnątrz AuthProvider');
+    throw new Error('useAuth musi być użyty wewnątrz AuthProvider');
   }
   return context;
 }
